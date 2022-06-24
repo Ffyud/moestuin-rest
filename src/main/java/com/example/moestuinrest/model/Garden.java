@@ -1,9 +1,6 @@
 package com.example.moestuinrest.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Garden {
@@ -46,7 +43,5 @@ public class Garden {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
 }
