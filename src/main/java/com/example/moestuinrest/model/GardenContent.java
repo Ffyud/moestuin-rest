@@ -11,12 +11,6 @@ public class GardenContent {
     int positionX;
     int positionY;
 
-    @OneToOne
-    Garden garden;
-
-    @OneToOne
-    Plant plant;
-
     public int getId() {
         return id;
     }
@@ -41,6 +35,10 @@ public class GardenContent {
         this.positionY = positionY;
     }
 
+    @ManyToOne
+    @JoinColumn(name="garden_id")
+    Garden garden;
+
     public Garden getGarden() {
         return garden;
     }
@@ -48,6 +46,9 @@ public class GardenContent {
     public void setGarden(Garden garden) {
         this.garden = garden;
     }
+
+    @ManyToOne
+    Plant plant;
 
     public Plant getPlant() {
         return plant;
