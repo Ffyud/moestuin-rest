@@ -24,8 +24,6 @@ public class GardenContentController {
         return gardenContentService.findById(id);
     }
 
-//    TODO add distinct gardencontent
-
     @GetMapping("/gardencontent/garden/{id}/{locationX}/{locationY}")
     Optional<GardenContent> findByGardenIdAndLocation(@PathVariable int id, @PathVariable int locationX, @PathVariable int locationY) {
         return gardenContentService.findByGardenIdAndLocation(id, locationX, locationY);
