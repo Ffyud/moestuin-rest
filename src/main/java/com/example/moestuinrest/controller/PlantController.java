@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class PlantController {
@@ -32,6 +34,11 @@ public class PlantController {
     @GetMapping("/plant")
     Iterable<Plant> findAll() {
         return plantService.findAll();
+    }
+
+    @GetMapping("/plant/{id}")
+    Optional<Plant> findById(@PathVariable int id) {
+        return plantService.findById(id);
     }
 
 }
