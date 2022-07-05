@@ -1,5 +1,6 @@
 package com.example.moestuinrest.controller;
 
+import com.example.moestuinrest.model.Garden;
 import com.example.moestuinrest.model.Plant;
 import com.example.moestuinrest.service.PlantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class PlantController {
         } else {
             throw new Exception();
         }
+    }
+
+    @DeleteMapping("/plant/{id}")
+    void delete(@PathVariable int id) {
+        plantService.deleteByPlantId(id);
     }
 
     @GetMapping("/plant")
