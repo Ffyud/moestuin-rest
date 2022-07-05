@@ -1,0 +1,5 @@
+#server.error.include-message=ALWAYS
+#server.error.include-stacktrace=NEVER
+
+server:
+  port: 8080
