@@ -3,6 +3,8 @@ package com.example.moestuinrest.controller;
 import com.example.moestuinrest.model.Plant;
 import com.example.moestuinrest.service.PlantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,8 +15,12 @@ public class PlantController {
     PlantService plantService;
 
     @PostMapping("/plant")
-    Plant save(@RequestBody Plant plant) {
-        return plantService.save(plant);
+    ResponseEntity<Plant> save(@RequestBody Plant plant) throws Exception {
+        if(plant.getName() != null) {
+            return new ResponseEntity<Plant>(plantService.save(plant), HttpStatus.OK);
+        } else {
+            throw new Exception();
+        }
     }
 
     @GetMapping("/plant")
