@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -17,7 +18,7 @@ public class GardenController {
     GardenService gardenService;
 
     @PostMapping("/garden")
-    ResponseEntity<Garden> save(@RequestBody Garden garden) throws Exception {
+    ResponseEntity<Garden> save(@Valid @RequestBody Garden garden) throws Exception {
         if(garden.getName() != null) {
             return new ResponseEntity<Garden>(gardenService.save(garden), HttpStatus.OK);
         } else {

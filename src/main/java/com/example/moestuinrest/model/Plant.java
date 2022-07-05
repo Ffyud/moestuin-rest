@@ -17,19 +17,19 @@ public class Plant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @NotBlank
+    @NotBlank(message = "Een naam is verplicht")
     String name;
 
-    @NotBlank
+    @NotBlank(message = "Een icon is verplicht")
     String icon;
 
-    @NotBlank
+    @NotBlank(message = "Een zaaiperiode is verplicht")
     String seedPeriod;
 
-    @NotBlank
+    @NotBlank(message = "Een plantperiode is verplicht")
     String plantPeriod;
 
-    @NotBlank
+    @NotBlank(message = "Een oogstperiode is verplicht")
     String harvestPeriod;
 
 }

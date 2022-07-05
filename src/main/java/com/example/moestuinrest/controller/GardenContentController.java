@@ -5,6 +5,7 @@ import com.example.moestuinrest.service.GardenContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -15,7 +16,7 @@ public class GardenContentController {
     GardenContentService gardenContentService;
 
     @PostMapping("/gardencontent")
-    GardenContent save(@RequestBody GardenContent gardenContent) {
+    GardenContent save(@Valid @RequestBody GardenContent gardenContent) {
         return gardenContentService.save(gardenContent);
     }
 

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -18,7 +19,7 @@ public class PlantController {
     PlantService plantService;
 
     @PostMapping("/plant")
-    ResponseEntity<Plant> save(@RequestBody Plant plant) throws Exception {
+    ResponseEntity<Plant> save(@Valid @RequestBody Plant plant) throws Exception {
         if(plant.getName() != null) {
             return new ResponseEntity<Plant>(plantService.save(plant), HttpStatus.OK);
         } else {

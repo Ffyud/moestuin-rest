@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter @Setter
 @Entity
@@ -14,18 +16,18 @@ public class GardenContent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @NotBlank
+    @NotNull(message = "Een positie X is verplicht")
     int positionX;
 
-    @NotBlank
+    @NotNull(message = "Een positie Y is verplicht")
     int positionY;
 
-    @NotBlank
+    @NotEmpty(message = "Een tuin is verplicht")
     @ManyToOne
     @JoinColumn(name="garden_id")
     Garden garden;
 
-    @NotBlank
+    @NotEmpty(message = "Een plant is verplicht")
     @ManyToOne
     Plant plant;
 
