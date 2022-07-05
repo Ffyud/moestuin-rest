@@ -1,47 +1,27 @@
 package com.example.moestuinrest.model;
 
-import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
+@Getter @Setter
 @Entity
 public class Garden {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
+    @NotBlank
     String name;
+
+    @NotBlank
     int dimensionX;
+
+    @NotBlank
     int dimensionY;
-
-    public int getDimensionX() {
-        return dimensionX;
-    }
-
-    public void setDimensionX(int dimensionX) {
-        this.dimensionX = dimensionX;
-    }
-
-    public int getDimensionY() {
-        return dimensionY;
-    }
-
-    public void setDimensionY(int dimensionY) {
-        this.dimensionY = dimensionY;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
